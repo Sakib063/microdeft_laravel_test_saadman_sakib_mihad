@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('assigned_developers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('project_id');
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assigned_developers');
+        Schema::dropIfExists('assigned_developer');
     }
 };
