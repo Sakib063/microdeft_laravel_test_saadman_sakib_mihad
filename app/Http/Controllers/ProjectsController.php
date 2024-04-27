@@ -13,7 +13,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -21,7 +21,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('form');
     }
 
     /**
@@ -29,7 +29,16 @@ class ProjectsController extends Controller
      */
     public function store(StoreProjectsRequest $request)
     {
-        //
+        $data = $request->validate([
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'start_date' => ['required', 'string'],
+            'end_date' => ['required', 'string'],
+
+        ]);
+        $projects = Projects::create($data);
+
+        return to_route('index');
     }
 
     /**
@@ -45,7 +54,7 @@ class ProjectsController extends Controller
      */
     public function edit(Projects $projects)
     {
-        //
+        return view('update');
     }
 
     /**
@@ -53,7 +62,17 @@ class ProjectsController extends Controller
      */
     public function update(UpdateProjectsRequest $request, Projects $projects)
     {
-        //
+        $data = $request->validate([
+            'title' => ['string'],
+            'description' => ['string'],
+            'start_date' => ['string'],
+            'end_date' => ['string'],
+
+        ]);
+        $projects = Projects::update($data);
+
+        return to_route('index');
+
     }
 
     /**
@@ -61,6 +80,9 @@ class ProjectsController extends Controller
      */
     public function destroy(Projects $projects)
     {
-        //
+        $projects->delete();
+
+        return to_route('index');
+
     }
 }
