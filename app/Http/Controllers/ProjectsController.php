@@ -13,7 +13,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('projects.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        return view('form');
+        return view('projects.form');
     }
 
     /**
@@ -38,7 +38,7 @@ class ProjectsController extends Controller
         ]);
         $projects = Projects::create($data);
 
-        return to_route('index')->with('message', 'Project Created');
+        return to_route('projects.index')->with('message', 'Project Created');
     }
 
     /**
@@ -46,7 +46,7 @@ class ProjectsController extends Controller
      */
     public function show(Projects $projects)
     {
-        return view('index',['projects'->$projects]);
+        return view('projects.index',['projects'->$projects]);
     }
 
     /**
@@ -54,7 +54,7 @@ class ProjectsController extends Controller
      */
     public function edit(Projects $projects)
     {
-        return view('update');
+        return view('projects.update');
     }
 
     /**
@@ -71,7 +71,7 @@ class ProjectsController extends Controller
         ]);
         $projects = Projects::update($data);
 
-        return to_route('index');
+        return to_route('projects.index');
 
     }
 
@@ -82,7 +82,7 @@ class ProjectsController extends Controller
     {
         $projects->delete();
 
-        return to_route('index');
+        return to_route('projects.index');
 
     }
 }

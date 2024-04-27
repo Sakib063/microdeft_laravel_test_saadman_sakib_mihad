@@ -13,29 +13,29 @@ class UserSeeder extends Seeder
     public function run(): void
     {
 
-        User::create([
+        DB::table('user')->insert([
             [
-                'name'=>'delevoper 1',
-                'email'=>'example1@mail.com',
-                'user_type'=>'1',
+                'name'=>'delevoper '.rand(1,3),
+                'email'=>Str::random(10).'@mail.com',
+                'user_type'=>rand(1,3),
                 'password'=>'11111111',
             ],
             [
-                'name'=>'delevoper 2',
-                'email'=>'example2@mail.com',
-                'user_type'=>'1',
+                'name'=>'delevoper '.rand(1,3),
+                'email'=>Str::random(10).'@mail.com',
+                'user_type'=>rand(1,3),
                 'password'=>'11111111',
             ],
             [
-                'name'=>'delevoper 3',
-                'email'=>'example3@mail.com',
-                'user_type'=>'2',
+                'name'=>'delevoper '.rand(1,3),
+                'email'=>Str::random(10).'@mail.com',
+                'user_type'=>rand(1,3),
                 'password'=>'11111111',
             ],
             [
-                'name'=>'delevoper 4',
-                'email'=>'example4@mail.com',
-                'user_type'=>'3s',
+                'name'=>'delevoper '.rand(1,3),
+                'email'=>Str::random(10).'@mail.com',
+                'user_type'=>rand(1,3),
                 'password'=>'11111111',
             ],
 
