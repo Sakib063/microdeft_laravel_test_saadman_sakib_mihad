@@ -38,7 +38,7 @@ class ProjectsController extends Controller
         ]);
         $projects = Projects::create($data);
 
-        return to_route('index');
+        return to_route('index')->with('message', 'Project Created');
     }
 
     /**
@@ -46,7 +46,7 @@ class ProjectsController extends Controller
      */
     public function show(Projects $projects)
     {
-        //
+        return view('index',['projects'->$projects]);
     }
 
     /**
